@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <style>
+        /* ... (styles unchanged) ... */
         :root {
             /* Light theme colors */
             --primary: #4361ee;
@@ -409,7 +410,6 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -1539,10 +1539,10 @@
                 users: [],
                 orders: [],
                 drones: [
-                    { id: 'DRN-001', status: 'active', battery: 85, location: [40.7128, -74.0060] },
-                    { id: 'DRN-002', status: 'active', battery: 92, location: [40.7300, -73.9900] },
-                    { id: 'DRN-003', status: 'maintenance', battery: 45, location: [40.7500, -74.0100] },
-                    { id: 'DRN-004', status: 'active', battery: 78, location: [40.7200, -74.0050] }
+                    { id: 'DRN-001', status: 'active', battery: 85, location: [18.553808, 73.815791] },
+                    { id: 'DRN-002', status: 'active', battery: 92, location: [18.553808, 73.815791] },
+                    { id: 'DRN-003', status: 'maintenance', battery: 45, location: [18.553808, 73.815791] },
+                    { id: 'DRN-004', status: 'active', battery: 78, location: [18.553808, 73.815791] }
                 ]
             },
             
@@ -1973,7 +1973,8 @@
 
             initCheckoutMap() {
                 if (!this.checkoutMap) {
-                    const startPos = [40.7128, -74.0060];
+                    // Updated to Pune coordinates
+                    const startPos = [18.553808, 73.815791];
                     this.checkoutMap = L.map('checkoutMap').setView(startPos, 13);
                     
                     // Use light map tiles for light mode, dark for dark mode
@@ -2141,8 +2142,8 @@
                 
                 setTimeout(() => {
                     if (document.getElementById('map')) {
-                        // Default location (New York for demo)
-                        const startPos = [40.7128, -74.0060];
+                        // Updated Pune coordinates
+                        const startPos = [18.553808, 73.815791];
                         
                         this.map = L.map('map').setView(startPos, 13);
                         
@@ -2167,8 +2168,8 @@
 
                         this.droneMarker = L.marker(startPos, {icon: droneIcon}).addTo(this.map);
                         
-                        // Add a destination marker
-                        L.marker([40.7300, -73.9900]).addTo(this.map)
+                        // Add a destination marker (central Pune)
+                        L.marker([18.520430, 73.856744]).addTo(this.map)
                          .bindPopup('Delivery Location').openPopup();
 
                         // Animate marker
